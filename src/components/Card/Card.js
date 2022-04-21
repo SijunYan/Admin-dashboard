@@ -9,15 +9,15 @@ import Chart from "react-apexcharts";
 const Card = (props) => {
   const [expanded, setExpanded] = useState(false);
   return (
-    // <LayoutGroup id={props.title}>
-    <>
+    <LayoutGroup id={props.title}>
+      {/*  <> */}
       {expanded ? (
         <ExpandedCard param={props} setExpanded={() => setExpanded(false)} />
       ) : (
         <CompactCard param={props} setExpanded={() => setExpanded(true)} />
       )}
-    </>
-    // </LayoutGroup>
+      {/* </> */}
+    </LayoutGroup>
   );
 };
 
@@ -31,8 +31,8 @@ function CompactCard({ param, setExpanded }) {
         background: param.color.backGround,
         boxShadow: param.color.boxShadow,
       }}
-      layoutId={`expandableCard${param.title}`}
-      // layoutId="expandableCard"
+      // layoutId={`expandableCard${param.title}`}
+      layoutId="expandableCard"
       onClick={setExpanded}
     >
       <div className="radialBar">
@@ -109,8 +109,8 @@ function ExpandedCard({ param, setExpanded }) {
         background: param.color.backGround,
         boxShadow: param.color.boxShadow,
       }}
-      layoutId={`expandableCard${param.title}`}
-      // layoutId="expandableCard"
+      // layoutId={`expandableCard${param.title}`}
+      layoutId="expandableCard"
     >
       <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
         <UilTimes onClick={setExpanded} />
